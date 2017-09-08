@@ -235,7 +235,9 @@ function."
 
     (when (not redenv-dir)
       (error "The ruby version: %s is not installed" ruby-version))
-    (add-to-list 'parsed-info (cons "ruby" (concat redenv-dir "bin/ruby")))
+    (add-to-list 'parsed-info (cons "ruby" (concat
+                                            (file-name-as-directory
+                                             redenv-dir) "bin/ruby")))
     (add-to-list 'parsed-info (cons "GEM_HOME" redenv-dir))
     (add-to-list 'parsed-info (cons "GEM_PATH" redenv-dir))
     parsed-info))
